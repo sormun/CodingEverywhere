@@ -1,3 +1,5 @@
+import json
+
 def print_variable(name,description,value,units):
   print name," is ",description,".","The value is ",value," ",units,"."
 def display_problem_from_file(filename):
@@ -10,3 +12,6 @@ def present_problem(filename,variables,formula):
   for variable in variables:print_variable(*variable)
   print formula
   print
+def read_problem(json_filename):
+  with open(json_filename,'r') as f: analysis=json.loads(f.read())
+  return analysis
