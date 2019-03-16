@@ -5,20 +5,19 @@ def display_problem_from_file(filename):
   with open(filename,'r') as file: problem=file.read()
   print problem
   print
-B=("b","the height of the first floor",20,"feet")
-T=("t","a height smaller than the building's height",254,"feet")
-F=("f","the number of the remaining floors",26,"")
-X=("x","the average height of the remaining floors","unknown","feet")
+variables=(
+("b","the height of the first floor",20,"feet")
+,("t","a height smaller than the building's height",254,"feet")
+,("f","the number of the remaining floors",26,"")
+,("x","the average height of the remaining floors","unknown","feet")
+)
 
 b = 20
 t = 254
 f = 26
 
 display_problem_from_file('problem.txt')
-print_variable(*B)
-print_variable(*T)
-print_variable(*F)
-print_variable(*X)
+for variable in variables:print_variable(*variable)
 
 print "b+f*x > t"
 
