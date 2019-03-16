@@ -12,12 +12,13 @@ variables=(
 ,("x","the average height of the remaining floors","unknown","feet")
 )
 
-b = 20
-t = 254
-f = 26
-
 display_problem_from_file('problem.txt')
 for variable in variables:print_variable(*variable)
+
+b = variables[0][2]
+t = variables[1][2]
+f = variables[2][2]
+
 
 print "b+f*x > t"
 
