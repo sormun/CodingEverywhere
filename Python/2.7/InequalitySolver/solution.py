@@ -1,3 +1,5 @@
+def print_variable(name,description,value,units):
+  print name," is ",description,".","The value is ",value," ",units,"."
 b = 20
 t = 254
 f = 26
@@ -5,10 +7,10 @@ print
 with open('problem.txt','r') as file: problem=file.read()
 print problem
 print
-print "b is the height of the first floor.","The value is ",b," ","feet","."
-print "t is a height smaller than the building's height.","The value is ",t," ","feet","."
-print "f is the number of remaining floors.","The value is ",f," ","","."
-print "x is the average height of the remaining floors"
+print_variable("b","the height of the first floor",20,"feet")
+print_variable("t","a height smaller than the building's height",254,"feet")
+print_variable("f","the number of the remaining floors",26,"")
+print_variable("x","the average height of the remaining floors","unknown","feet")
 
 print "b+f*x > t"
 
