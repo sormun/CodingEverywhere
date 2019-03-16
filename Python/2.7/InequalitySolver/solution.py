@@ -1,15 +1,9 @@
 from codingeverywhere_library import present_problem
 
-analysis=(
-  "problem.txt"
-  ,(
-    ("b","the height of the first floor",20,"feet")
-    ,("t","a height smaller than the building's height",254,"feet")
-    ,("f","the number of the remaining floors",26,"")
-    ,("x","the average height of the remaining floors","unknown","feet")
-  )
-  ,"b+f*x > t"
-)
+import json
+
+with open('analysis.json','r') as f: analysis=json.loads(f.read())
+
 present_problem(*analysis)
 
 variables=analysis[1]
