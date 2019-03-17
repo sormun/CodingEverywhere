@@ -12,7 +12,9 @@ f = variables[2][2]
 
 formula=analysis[2]
 
-lhs_tokens,f_sign,rhs_tokens=parse_formula(formula)
+canonical_formula=formula.replace(" ","")
+
+lhs_tokens,f_sign,rhs_tokens=parse_formula(canonical_formula)
 print "STEP 0 :"
 present_formula(lhs_tokens,f_sign,rhs_tokens)
 
