@@ -11,11 +11,10 @@ f = variables[2][2]
 
 formula=analysis[2]
 
-if ">" in formula : f_sign=">"
-if "<" in formula : f_sign="<"
-if "=" in formula : f_sign="="
-if ">=" in formula : f_sign=">="
-if "<=" in formula : f_sign="<="
+potential_f_signs=[">","<","=",">=","<="]
+
+for potential_f_sign in potential_f_signs:
+  if potential_f_sign in formula:f_sign=potential_f_sign
 
 print "x ",f_sign," (t-b)/f"
 print "x ",f_sign," ",(t-b)/f," ","feet"
