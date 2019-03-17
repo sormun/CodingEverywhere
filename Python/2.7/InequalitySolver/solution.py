@@ -36,7 +36,7 @@ for i in range(len(lhs_tokens)):
     present_formula(lhs_tokens,f_sign,rhs_tokens)
 if len(lhs_tokens)==0:
   lhs_tokens.append("0");
-  present_formula(lhs_tokens,f_sign,rhs_tokens)
+
 
 print
 
