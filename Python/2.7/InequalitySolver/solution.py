@@ -18,7 +18,17 @@ lhs_tokens,f_sign,rhs_tokens=parse_formula(canonical_formula)
 print "STEP 0 :"
 present_formula(lhs_tokens,f_sign,rhs_tokens)
 
-
+for i in range(len(lhs_tokens)):
+  token=lhs_tokens.pop(0)
+  if "x" in token:
+    lhs_tokens.append(token)
+  else:
+    if token.startswith("-"):neg_token="+"+token[1:]
+    elif token.startswith("+"):neg_token="-"+token[1:]
+    else: neg_token="-"+token
+    rhs_tokens.append(neg_token)
+    present_formula(lhs_tokens,f_sign,rhs_tokens)
+print
 
 print "x ",f_sign," (t-b)/f"
 print "x ",f_sign," ",(t-b)/f," ","feet"
