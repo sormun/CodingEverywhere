@@ -1,6 +1,7 @@
 from codingeverywhere_library import present_problem,read_problem
+import sys
 
-analysis=read_problem('analysis_002.json')
+analysis=read_problem(sys.argv[1])
 present_problem(*analysis)
 
 variables=analysis[1]
