@@ -20,6 +20,7 @@ present_formula(lhs_tokens,f_sign,rhs_tokens)
 
 for i in range(len(lhs_tokens)):
   token=lhs_tokens.pop(0)
+  if token in ["0","-0","+0"]:continue
   if "x" in token:
     lhs_tokens.append(token)
   else:
@@ -27,7 +28,13 @@ for i in range(len(lhs_tokens)):
     elif token.startswith("+"):neg_token="-"+token[1:]
     else: neg_token="-"+token
     rhs_tokens.append(neg_token)
+    if len(lhs_tokens)==0:
+      lhs_tokens.append("0");
     present_formula(lhs_tokens,f_sign,rhs_tokens)
+if len(lhs_tokens)==0:
+  lhs_tokens.append("0");
+  present_formula(lhs_tokens,f_sign,rhs_tokens)
+
 print
 
 print "x ",f_sign," (t-b)/f"
