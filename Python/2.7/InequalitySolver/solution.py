@@ -1,4 +1,4 @@
-from codingeverywhere_library import present_problem,read_problem
+from codingeverywhere_library import present_problem,read_problem,get_f_sign
 import sys
 
 analysis=read_problem(sys.argv[1])
@@ -11,10 +11,7 @@ f = variables[2][2]
 
 formula=analysis[2]
 
-potential_f_signs=[">","<","=",">=","<="]
-
-for potential_f_sign in potential_f_signs:
-  if potential_f_sign in formula:f_sign=potential_f_sign
+f_sign=get_f_sign(formula)
 
 print "x ",f_sign," (t-b)/f"
 print "x ",f_sign," ",(t-b)/f," ","feet"

@@ -15,3 +15,9 @@ def present_problem(filename,variables,formula):
 def read_problem(json_filename):
   with open(json_filename,'r') as f: analysis=json.loads(f.read())
   return analysis
+
+def get_f_sign(formula):
+  potential_f_signs=[">","<","=",">=","<="]
+  for potential_f_sign in potential_f_signs:
+    if potential_f_sign in formula:f_sign=potential_f_sign
+  return f_sign
