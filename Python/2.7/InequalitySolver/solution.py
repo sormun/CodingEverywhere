@@ -22,7 +22,10 @@ for i in range(len(lhs_tokens)):
   token=lhs_tokens.pop(0)
   if token in ["0","-0","+0"]:continue
   if "x" in token:
-    lhs_tokens.append(token)
+    if token.startswith("+") or token.startswith("-"):
+      lhs_tokens.append(token)
+    else:
+      lhs_tokens.append("+"+token)
   else:
     if token.startswith("-"):neg_token="+"+token[1:]
     elif token.startswith("+"):neg_token="-"+token[1:]
