@@ -1,4 +1,4 @@
-from codingeverywhere_library import present_problem,read_problem,get_f_sign
+from codingeverywhere_library import present_problem,read_problem,parse_formula
 import sys
 import re
 
@@ -12,18 +12,14 @@ f = variables[2][2]
 
 formula=analysis[2]
 
-f_sign=get_f_sign(formula)
+lhs_tokens,f_sign,rhs_tokens=parse_formula(formula)
 
-hsides=formula.split(f_sign)
-lhs=hsides[0]
-rhs=hsides[1]
-
-lhs_tokens=re.findall("[\+\-]*[a-zA-Z0-9 _\*]+",lhs)
 print
-print "LHS : ",lhs
+print "LHS : "
 for lhs_token in lhs_tokens:print lhs_token
 print
-print "RHS : ",rhs
+print "RHS : "
+for rhs_token in rhs_tokens:print rhs_token
 print
 
 print "x ",f_sign," (t-b)/f"

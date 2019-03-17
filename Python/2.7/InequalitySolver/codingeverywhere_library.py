@@ -1,4 +1,5 @@
 import json
+import re
 
 def print_variable(name,description,value,units):
   print name," is ",description,".","The value is ",value," ",units,"."
@@ -21,3 +22,15 @@ def get_f_sign(formula):
   for potential_f_sign in potential_f_signs:
     if potential_f_sign in formula:f_sign=potential_f_sign
   return f_sign
+
+def parse_formula(formula):
+  f_sign=get_f_sign(formula)
+
+  hsides=formula.split(f_sign)
+  lhs=hsides[0]
+  rhs=hsides[1]
+
+  lhs_tokens=re.findall("[\+\-]*[a-zA-Z0-9 _\*]+",lhs)
+  rhs_tokens=re.findall("[\+\-]*[a-zA-Z0-9 _\*]+",rhs)
+
+  return (lhs_tokens,f_sign,rhs_tokens)
