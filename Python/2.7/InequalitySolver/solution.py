@@ -13,6 +13,9 @@ formula=analysis[2]
 
 if ">" in formula : f_sign=">"
 if "<" in formula : f_sign="<"
+if "=" in formula : f_sign="="
+if ">=" in formula : f_sign=">="
+if "<=" in formula : f_sign="<="
 
 print "x ",f_sign," (t-b)/f"
 print "x ",f_sign," ",(t-b)/f," ","feet"

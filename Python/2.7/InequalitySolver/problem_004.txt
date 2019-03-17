@@ -1,0 +1,5 @@
+Superman was flying through the city sky one day and started thinking about the height of the
+buildings. The first floor has a ballroom with a very high ceiling, at 20 feet. The building was
+less than or equal to 254 feet tall. If there are 26 other floors to the building, what can you tell about the
+average height of the remaining floors?
+Write an inequality and solve the inequality.
