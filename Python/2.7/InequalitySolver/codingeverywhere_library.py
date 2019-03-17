@@ -34,3 +34,9 @@ def parse_formula(formula):
   rhs_tokens=re.findall("[\+\-]*[a-zA-Z0-9 _\*]+",rhs)
 
   return (lhs_tokens,f_sign,rhs_tokens)
+
+def present_formula(lhs_tokens,f_sign,rhs_tokens):
+  for i in range(len(lhs_tokens)):print lhs_tokens[i],
+  print f_sign,
+  for i in range(len(rhs_tokens)):print rhs_tokens[i],
+  print
