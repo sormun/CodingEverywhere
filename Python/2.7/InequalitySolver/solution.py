@@ -13,5 +13,12 @@ formula=analysis[2]
 
 f_sign=get_f_sign(formula)
 
+hsides=formula.split(f_sign)
+lhs=hsides[0]
+rhs=hsides[1]
+
+print "LHS : ",lhs
+print "RHS : ",rhs
+
 print "x ",f_sign," (t-b)/f"
 print "x ",f_sign," ",(t-b)/f," ","feet"
