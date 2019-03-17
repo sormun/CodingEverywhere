@@ -1,0 +1,9 @@
+b = 20
+t = 254
+f = 26
+
+x is the average height of the remaining floors
+
+b+f*x < t
+  f*x < t-b
+    x < (t-b)/f
