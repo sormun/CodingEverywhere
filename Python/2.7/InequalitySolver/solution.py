@@ -59,6 +59,6 @@ if len(rhs_tokens)==0:
 
 
 print
-
-print "x ",f_sign," (t-b)/f"
-print "x ",f_sign," ",(t-b)/f," ","feet"
+if sys.argv[1] in ["analysis.json","analysis_002.json","analysis_003.json","analysis_004.json","analysis_006.json"]:
+  print "x ",f_sign," (t-b)/f"
+  print "x ",f_sign," ",(t-b)/f," ","feet"
