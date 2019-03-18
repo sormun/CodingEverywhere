@@ -40,3 +40,47 @@ def present_formula(lhs_tokens,f_sign,rhs_tokens):
   print f_sign,
   for i in range(len(rhs_tokens)):print rhs_tokens[i],
   print
+
+def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
+  print "STEP 0 :"
+  present_formula(lhs_tokens,f_sign,rhs_tokens)
+  
+  for i in range(len(lhs_tokens)):
+    token=lhs_tokens.pop(0)
+    if token in ["0","-0","+0"]:continue
+    if unknown in token:
+      if token.startswith("+") or token.startswith("-"):
+        lhs_tokens.append(token)
+      else:
+        lhs_tokens.append("+"+token)
+    else:
+      if token.startswith("-"):neg_token="+"+token[1:]
+      elif token.startswith("+"):neg_token="-"+token[1:]
+      else: neg_token="-"+token
+      rhs_tokens.append(neg_token)
+      if len(lhs_tokens)==0:
+        lhs_tokens.append("0");
+      present_formula(lhs_tokens,f_sign,rhs_tokens)
+  if len(lhs_tokens)==0:
+    lhs_tokens.append("0");
+
+
+  for i in range(len(rhs_tokens)):
+    token=rhs_tokens.pop(0)
+    if token in ["0","-0","+0"]:continue
+    if unknown not in token:
+      if token.startswith("+") or token.startswith("-"):
+        rhs_tokens.append(token)
+      else:
+        rhs_tokens.append("+"+token)
+    else:
+      if token.startswith("-"):neg_token="+"+token[1:]
+      elif token.startswith("+"):neg_token="-"+token[1:]
+      else: neg_token="-"+token
+      lhs_tokens.append(neg_token)
+      if len(rhs_tokens)==0:
+        rhs_tokens.append("0");
+      present_formula(lhs_tokens,f_sign,rhs_tokens)
+  if len(rhs_tokens)==0:
+    rhs_tokens.append("0");
+  return (lhs_tokens,f_sign,rhs_tokens)
