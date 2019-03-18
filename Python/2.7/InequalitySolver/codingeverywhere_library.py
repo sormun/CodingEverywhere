@@ -35,10 +35,16 @@ def parse_formula(formula):
 
   return (lhs_tokens,f_sign,rhs_tokens)
 
+def printable_token(position_in_list,token):
+  if position_in_list==0 and token[0]=="+":return token[1:]
+  else:return token
+
 def present_formula(lhs_tokens,f_sign,rhs_tokens):
-  for i in range(len(lhs_tokens)):print lhs_tokens[i],
+  for i in range(len(lhs_tokens)):
+    print printable_token(i,lhs_tokens[i]),
   print f_sign,
-  for i in range(len(rhs_tokens)):print rhs_tokens[i],
+  for i in range(len(rhs_tokens)):
+    print printable_token(i,rhs_tokens[i]),
   print
 
 def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
