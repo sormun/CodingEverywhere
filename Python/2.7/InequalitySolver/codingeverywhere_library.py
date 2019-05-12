@@ -103,3 +103,10 @@ def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
   if len(rhs_tokens)==0:
     rhs_tokens.append("0");
   return (lhs_tokens,f_sign,rhs_tokens)
+
+def build_expression(tokens):
+  expression="("
+  for i in range(len(tokens)):
+    expression+=printable_token(i,tokens[i])
+  expression+=")"
+  return expression

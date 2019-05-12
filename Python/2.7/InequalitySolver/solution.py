@@ -1,5 +1,5 @@
 from codingeverywhere_library import present_problem,read_problem,parse_formula,present_formula,solve_phase_1
-from codingeverywhere_library import printable_token
+from codingeverywhere_library import printable_token,build_expression
 import sys
 import re
 
@@ -27,18 +27,12 @@ lhs_tokens,f_sign,rhs_tokens=parse_formula(canonical_formula)
 
 lhs_tokens,f_sign,rhs_tokens=solve_phase_1(lhs_tokens,f_sign,rhs_tokens,"x")
 
-lhs="("
-for i in range(len(lhs_tokens)):
-  lhs+=printable_token(i,lhs_tokens[i])
-lhs+=")"
-
-rhs="("
-for i in range(len(rhs_tokens)):
-  rhs+=printable_token(i,rhs_tokens[i])
-rhs+=")"
-
 print 
 print "Phase II:"
+
+lhs=build_expression(lhs_tokens)
+rhs=build_expression(rhs_tokens)
+
 print lhs,f_sign,rhs
 print
 print lhs,f_sign,eval(rhs,knowns)
