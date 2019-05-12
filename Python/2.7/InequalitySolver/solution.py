@@ -7,6 +7,14 @@ analysis=read_problem(sys.argv[1])
 present_problem(*analysis)
 
 variables=analysis[1]
+
+knowns={}
+for variable in variables:
+  if variable[2]=="unknown":
+    unknown=variable[0]
+  else:
+    knowns[variable[0]]=variable[2]
+
 b = variables[0][2]
 t = variables[1][2]
 f = variables[2][2]
@@ -32,6 +40,8 @@ rhs+=")"
 print 
 print "Phase II:"
 print lhs,f_sign,rhs
+print
+print lhs,f_sign,eval(rhs,knowns)
 
 
 print
