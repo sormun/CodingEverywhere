@@ -54,7 +54,8 @@ def clean_zero_tokens(hs_tokens):
   return hs_tokens
 
 def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
-  print "STEP 0 :"
+  print
+  print "Phase I:"
   present_formula(lhs_tokens,f_sign,rhs_tokens)
   
   for i in range(len(lhs_tokens)):
@@ -73,6 +74,8 @@ def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
       rhs_tokens=clean_zero_tokens(rhs_tokens)
       if len(lhs_tokens)==0:
         lhs_tokens.append("0");
+      print
+      print "Adding (",neg_token,") on both sides ..."
       present_formula(lhs_tokens,f_sign,rhs_tokens)
   if len(lhs_tokens)==0:
     lhs_tokens.append("0");
@@ -94,6 +97,8 @@ def solve_phase_1(lhs_tokens,f_sign,rhs_tokens,unknown):
       lhs_tokens=clean_zero_tokens(lhs_tokens)
       if len(rhs_tokens)==0:
         rhs_tokens.append("0");
+      print
+      print "Adding (",neg_token,") on both sides ..."
       present_formula(lhs_tokens,f_sign,rhs_tokens)
   if len(rhs_tokens)==0:
     rhs_tokens.append("0");
