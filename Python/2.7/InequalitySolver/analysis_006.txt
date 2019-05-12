@@ -1,0 +1,12 @@
+f*x +x -x > t -b
+
+(f*x +x -x) > (t -b)
+
+(f +1 -1)*x > (t -b)
+
+estimate (f+1-1)
+if positive
+	x > (t -b)/(f +1 -1)
+if negative
+	x < (t -b)/(f +1 -1)
+	
