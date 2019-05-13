@@ -33,7 +33,26 @@ print lhs,f_sign,rhs
 print
 print lhs,f_sign,eval(rhs,knowns)
 
+for i in range(len(lhs_tokens)):
+  if ("*"+unknown) in lhs_tokens[i]:
+    lhs_tokens[i]=lhs_tokens[i].replace("*"+unknown,"")
+    continue
+  if (unknown+"*") in lhs_tokens[i]:
+    lhs_tokens[i]=lhs_tokens[i].replace(unknown+"*","")
+    continue
+  if lhs_tokens[i]=="x":
+    lhs_tokens[i]="1"
+    continue
+  if lhs_tokens[i]=="-x":
+    lhs_tokens[i]="-1"
+    continue
+  if lhs_tokens[i]=="+x":
+    lhs_tokens[i]="+1"
+    continue
 
+lhs=build_expression(lhs_tokens)
+print
+print lhs,"*",unknown,f_sign,rhs
 print
 b = variables[0][2]
 t = variables[1][2]
